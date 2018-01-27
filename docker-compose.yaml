@@ -1,0 +1,10 @@
+version: '2'
+services:
+  dockergame:
+    build:
+      context: "."
+    image: "myuser/dockergame:latest"
+    environment:
+      404_PATH: "/boring_404.html"
+    ports:
+      - "8090:80"
