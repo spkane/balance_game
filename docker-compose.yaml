@@ -5,6 +5,6 @@ services:
       context: "."
     image: "myuser/dockergame:latest"
     environment:
-      404_PATH: "/boring_404.html"
+      THEME: "1"
     ports:
       - "8090:80"
