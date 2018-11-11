@@ -1,15 +1,16 @@
-FROM fedora:22
+FROM alpine:3.8
 
-RUN dnf install -y httpd
-RUN mkdir /var/www/html/res && \
+RUN apk add apache2
+RUN mkdir -p /run/apache2 && \
+    mkdir /var/www/localhost/htdocs/res && \
     mkdir /theme1 && \
     mkdir /theme2
-ADD httpd.conf /etc/httpd/conf/httpd.conf
+ADD httpd.conf /etc/apache2/httpd.conf
 ADD publish/html5/theme1/* /theme1/
 ADD publish/html5/theme2/* /theme2/
-ADD publish/html5/game.min.js /var/www/html/
-ADD publish/html5/index.html /var/www/html/
-ADD publish/html5/project.json /var/www/html/
+ADD publish/html5/game.min.js /var/www/localhost/htdocs/
+ADD publish/html5/index.html /var/www/localhost/htdocs/
+ADD publish/html5/project.json /var/www/localhost/htdocs/
 ADD start.sh /
 ENV THEME 1
 
