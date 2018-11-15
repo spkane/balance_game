@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-RUN apk add apache2
+RUN apk add --no-cache apache2
 RUN mkdir -p /run/apache2 && \
     mkdir /var/www/localhost/htdocs/res && \
     mkdir /theme1 && \
