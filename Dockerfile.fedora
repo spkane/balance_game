@@ -4,16 +4,15 @@ RUN dnf install -y httpd
 RUN mkdir /var/www/html/res && \
     mkdir /theme1 && \
     mkdir /theme2
-ADD httpd-fedora.conf /etc/httpd/conf/httpd.conf
-ADD publish/html5/theme1/* /theme1/
-ADD publish/html5/theme2/* /theme2/
-ADD publish/html5/game.min.js /var/www/html/
-ADD publish/html5/index.html /var/www/html/
-ADD publish/html5/project.json /var/www/html/
-ADD start-fedora.sh /start.sh
+COPY httpd-fedora.conf /etc/httpd/conf/httpd.conf
+COPY publish/html5/theme1/* /theme1/
+COPY publish/html5/theme2/* /theme2/
+COPY publish/html5/game.min.js /var/www/html/
+COPY publish/html5/index.html /var/www/html/
+COPY publish/html5/project.json /var/www/html/
+COPY start-fedora.sh /start.sh
 ENV THEME 1
 
 EXPOSE 80
 
 CMD ["/start.sh"]
-
