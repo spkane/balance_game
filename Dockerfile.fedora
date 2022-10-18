@@ -1,4 +1,4 @@
-FROM fedora:28
+FROM fedora:36
 
 RUN dnf install -y httpd
 RUN mkdir /var/www/html/res && \

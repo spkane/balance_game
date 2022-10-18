@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.16
 
 RUN apk add --no-cache apache2
 RUN mkdir -p /run/apache2 && \
